@@ -10,8 +10,8 @@ public class Target
 {
 	float x;
 	float y;
-	int width;
-	int height;
+	float width;
+	float height;
 	
 	int lives;
 	
@@ -26,19 +26,19 @@ public class Target
 	
 	int hp;
 	
-	int bullseyeSize;
+	float bullseyeSize;
 	
 	boolean hit;
 	boolean bullseye;
 	boolean miss;
 	
-	public Target(float x, float y, int width, int height, float xDirection, float yDirection, int lives, int maxSpeed)
+	public Target(float x, float y, float width, float height, float xDirection, float yDirection, int lives, int maxSpeed)
 	{
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		bullseyeSize = width / 4;
+		bullseyeSize = width / 4f;
 		
 		hp = 200;
 		hit = false;

@@ -153,7 +153,16 @@ public class Game implements ApplicationListener
 			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
 			gameCamera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 			fontCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-			scale = Gdx.graphics.getHeight() / 720;
+			scale = (float)(Gdx.graphics.getHeight() / 720f);
+			System.out.println((float)(Gdx.graphics.getHeight() / 720f));
+			
+			if(targets.size() > 0)
+				for(int i = 0; i < targets.size(); i++)
+				{
+					targets.get(i).width = (16 * scale);
+					targets.get(i).height = (16 * scale);
+				}
+			
 			fullscreen = true;
 		}
 		else if(Gdx.input.isKeyJustPressed(Keys.F11) && fullscreen)
@@ -161,7 +170,17 @@ public class Game implements ApplicationListener
 			Gdx.graphics.setWindowedMode(1280, 720);
 			gameCamera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 			fontCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-			scale = Gdx.graphics.getHeight() / 720;
+			scale = (float)(Gdx.graphics.getHeight() / 720f);
+			System.out.println((float)(Gdx.graphics.getHeight() / 720f));
+			
+			if(targets.size() > 0)
+				for(int i = 0; i < targets.size(); i++)
+				{
+					targets.get(i).width = (16 * scale);
+					targets.get(i).height = (16 * scale);
+					targets.get(i).bullseyeSize = targets.get(i).width / 4;
+				}
+			
 			fullscreen = false;
 		}
 		else if(Gdx.input.isKeyJustPressed(Keys.ESCAPE))
@@ -177,7 +196,15 @@ public class Game implements ApplicationListener
 	{
 		gameCamera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		fontCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		scale = Gdx.graphics.getHeight() / 720;
+		scale = (float)(Gdx.graphics.getHeight() / 720f);
+		
+		if(targets.size() > 0)
+			for(int i = 0; i < targets.size(); i++)
+			{
+				targets.get(i).width = (16 * scale);
+				targets.get(i).height = (16 * scale);
+				targets.get(i).bullseyeSize = targets.get(i).width / 4;
+			}
 	}
 
 	@Override
