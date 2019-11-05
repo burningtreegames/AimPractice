@@ -2,6 +2,7 @@ package engine;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.math.*;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -51,7 +52,7 @@ public class Game implements ApplicationListener
 		fontCamera = new OrthographicCamera();
 		fontCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		
-		scale = Gdx.graphics.getWidth() / 1280;
+		scale = Gdx.graphics.getHeight() / 720;
 		
 		fullscreen = false;
 		
@@ -132,9 +133,9 @@ public class Game implements ApplicationListener
 				{	
 					if(targets.get(i).lives > 0)
 					{
-						targets.add(new Target(targets.get(i).x, targets.get(i).y, targetSize, targetSize, (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));
-						targets.add(new Target(targets.get(i).x, targets.get(i).y, targetSize, targetSize, (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));		
-						targets.add(new Target(targets.get(i).x, targets.get(i).y, targetSize, targetSize, (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));		
+						targets.add(new Target(targets.get(i).x, targets.get(i).y, (int)(targetSize * scale), (int)(targetSize * scale), (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));
+						targets.add(new Target(targets.get(i).x, targets.get(i).y, (int)(targetSize * scale), (int)(targetSize * scale), (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));		
+						targets.add(new Target(targets.get(i).x, targets.get(i).y, (int)(targetSize * scale), (int)(targetSize * scale), (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, targets.get(i).lives - 1, targets.get(i).maxSpeed));		
 					}
 					
 					targets.remove(i);		
@@ -145,7 +146,7 @@ public class Game implements ApplicationListener
 		
 		
 		if(targets.size() == 0)
-			targets.add(new Target(rand.nextInt(Gdx.graphics.getWidth() - 100) + 100, rand.nextInt(Gdx.graphics.getHeight() - 100) + 100, targetSize, targetSize, (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, 3, 5));
+			targets.add(new Target(rand.nextInt(Gdx.graphics.getWidth() - 100) + 100, rand.nextInt(Gdx.graphics.getHeight() - 100) + 100, (int)(targetSize * scale), (int)(targetSize * scale), (float)Math.random() - 0.5f, (float)Math.random() - 0.5f, 3, 5));
 		
 		if(Gdx.input.isKeyJustPressed(Keys.F11) && !fullscreen)
 		{
